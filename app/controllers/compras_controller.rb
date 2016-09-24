@@ -56,7 +56,7 @@ class ComprasController < ApplicationController
   def destroy
     @compra.destroy
     respond_to do |format|
-      format.html { redirect_to compras_url, notice: 'Compra was successfully destroyed.' }
+      format.html { redirect_to compras_url, notice: 'La compra fue retirada sin problemas.' }
       format.json { head :no_content }
     end
   end

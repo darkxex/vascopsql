@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   resources :compras
   resources :compras
   resources :clientes
-  resources :productos
+  resources :productos do
+    member do
+    get :tester
+  end
+end
+
   devise_for :admins
   get 'principal/index'
 

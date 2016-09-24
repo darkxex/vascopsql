@@ -6,15 +6,7 @@ class ProductosController < ApplicationController
   def index
     @productos = Producto.all
   end
-def tester
-  @acompra = Compra.new({
-   :comentario => "Descripción de prueba",
-   :producto_id => 2,
-   :cliente_id => 2
-});
-@acompra.save();
 
-end
   # GET /productos/1
   # GET /productos/1.json
   def show
@@ -36,7 +28,7 @@ end
 
     respond_to do |format|
       if @producto.save
-        format.html { redirect_to @producto, notice: 'Producto was successfully created.' }
+        format.html { redirect_to @producto, notice: 'Producto fue creado sin problemas.' }
         format.json { render :show, status: :created, location: @producto }
       else
         format.html { render :new }
@@ -44,19 +36,23 @@ end
       end
     end
   end
+def tester
+ 
+        @acompra = Compra.new({
+   :comentario => "SIN PAGAR",
+   :producto_id => params[:id],
+   :cliente_id => 1
+});
+@acompra.save();
+  end
 
   # PATCH/PUT /productos/1
   # PATCH/PUT /productos/1.jsonS
   def update
-      @acompra = Compra.new({
-   :comentario => "Descripción de prueba",
-   :producto_id => @producto.id,
-   :cliente_id => 2
-});
-@acompra.save();
+    
     respond_to do |format|
       if @producto.update(producto_params)
-        format.html { redirect_to @producto, notice: 'Producto was successfully updated.' }
+        format.html { redirect_to @producto, notice: 'Producto fue actualizado sin problemas.' }
         format.json { render :show, status: :ok, location: @producto }
       else
         format.html { render :edit }
@@ -70,7 +66,7 @@ end
   def destroy
     @producto.destroy
     respond_to do |format|
-      format.html { redirect_to productos_url, notice: 'Producto was successfully destroyed.' }
+      format.html { redirect_to productos_url, notice: 'Producto fue eliminado sin problemas.' }
       format.json { head :no_content }
     end
 
