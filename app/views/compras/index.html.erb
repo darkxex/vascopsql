@@ -41,7 +41,7 @@
 %>
               <%= content_tag_for(:tr, @compras) do |compra| %>
               <td><%= compra.comentario %></td>
-              <td><%= compra.producto %></td>
+              <td><%= compra.producto.nombre %></td>
               <td><%= compra.cliente %></td>
               <td><%= compra.cliente.id %></td>
               <% contador += compra.producto.precio; %>

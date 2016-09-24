@@ -6,7 +6,15 @@ class ProductosController < ApplicationController
   def index
     @productos = Producto.all
   end
+def tester
+  @acompra = Compra.new({
+   :comentario => "Descripción de prueba",
+   :producto_id => 2,
+   :cliente_id => 2
+});
+@acompra.save();
 
+end
   # GET /productos/1
   # GET /productos/1.json
   def show
@@ -38,8 +46,14 @@ class ProductosController < ApplicationController
   end
 
   # PATCH/PUT /productos/1
-  # PATCH/PUT /productos/1.json
+  # PATCH/PUT /productos/1.jsonS
   def update
+      @acompra = Compra.new({
+   :comentario => "Descripción de prueba",
+   :producto_id => @producto.id,
+   :cliente_id => 2
+});
+@acompra.save();
     respond_to do |format|
       if @producto.update(producto_params)
         format.html { redirect_to @producto, notice: 'Producto was successfully updated.' }
@@ -59,6 +73,8 @@ class ProductosController < ApplicationController
       format.html { redirect_to productos_url, notice: 'Producto was successfully destroyed.' }
       format.json { head :no_content }
     end
+
+
   end
 
   private
