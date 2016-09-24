@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  comentario: MyText
+  producto_id: 
+  cliente_id: 
+
+two:
+  comentario: MyText
+  producto_id: 
+  cliente_id: 
