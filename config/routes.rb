@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
   resources :compras
   resources :compras
-  resources :clientes
+  resources :clientes do
+   collection do
+   get :ajuste
+ end
+  end
   resources :productos do
     member do
     get :tester
+    get :ajuste
   end
 end
 

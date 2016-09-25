@@ -4,7 +4,9 @@ class ClientesController < ApplicationController
   # GET /clientes
   # GET /clientes.json
   def index
+
     @clientes = Cliente.all
+   
   end
 
   # GET /clientes/1
@@ -36,7 +38,15 @@ class ClientesController < ApplicationController
       end
     end
   end
+def ajuste
+     @data = params[:rut]
+     if Cliente.where(rut: @data).exists?
+      @name = Cliente.where(rut: @data).last.nombre
+    else
+      @name = "No existe ningún usuario con un Rut así."
+     end
 
+   end
   # PATCH/PUT /clientes/1
   # PATCH/PUT /clientes/1.json
   def update

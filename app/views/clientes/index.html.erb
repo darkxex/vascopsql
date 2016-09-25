@@ -42,6 +42,17 @@
                 <td><%= link_to 'Editar', edit_cliente_path(cliente) %></td>
                 <td><%= link_to 'Eliminar', cliente, method: :delete, data: { confirm: '¿Seguro?' } %></td>
               <% end %>
+             
+      
+      
+   <%= form_tag({:controller => "clientes", :action => "ajuste"}, :method => "get") do %>
+   <%= label_tag "rut", "Rut a Predeterminar:" %>
+
+   <%= text_field_tag "rut", "", :size => 30, :maxlenght => 30, :placeholder => "18828818-9", :required => "required" %>
+
+   <%= submit_tag "Enviar" %>
+<% end %>
+
             </tbody>
           </table>
         </div>

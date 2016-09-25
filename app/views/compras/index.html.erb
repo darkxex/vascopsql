@@ -35,14 +35,19 @@
 contador2 = 0;
 %>
               <%= content_tag_for(:tr, @compras) do |compra| %>
+              <% if compra.comentario == "SIN PAGAR" %>
               <td>$ <%= compra.producto.precio %></td>
               <td><%= compra.producto.nombre %></td>
               <td><%= compra.cliente.nombre %></td>
               <td><%= compra.comentario %></td>
+              
               <% contador += compra.producto.precio; %>
                    <% contador2 += 1 %>       
                 
+
+
                 <td><%= link_to 'Quitar', compra, method: :delete, data: { confirm: '¿Seguro?' } %></td>
+                <% end %>
               <% end %>
                  <tr><th>Precio Total</th><th>N°Productos</th></tr>
                 <td><%= "$ #{contador}" %> </td><td><%= "#{contador2}" %> </td>
