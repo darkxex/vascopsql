@@ -21,6 +21,43 @@ class CarrosController < ApplicationController
   def edit
   end
 
+def acomprar
+  clienteexiste = false;
+  vendedorexiste = false;
+   @data = params[:rutcliente]
+     if Cliente.where(rut: @data).exists?
+      @name = Cliente.where(rut: @data).last.nombre
+      clienteexiste = true;
+    else
+      @name = "No existe ningún Cliente con este Rut."
+        clienteexiste = false;
+     end
+
+@data2 = params[:rutvendedor]
+     if Vendedor.where(rut: @data2).exists?
+      @name2 = Vendedor.where(rut: @data2).last.nombre
+      vendedorexiste = true;
+    else
+      @name2 = "No existe ningún Vendedor con este Rut."
+      vendedorexiste = false;
+     end
+
+if clienteexiste == true and vendedorexiste == true
+@factura = Factura.new({
+   
+   :cliente_id => Cliente.where(rut: @data).last.id,
+   :vendedor_id => Vendedor.where(rut: @data2).last.id,
+});
+@factura.save();
+@portcompra = true
+else 
+@portcompra = false
+
+end
+
+
+  end
+
   # POST /carros
   # POST /carros.json
   def create
@@ -56,7 +93,7 @@ class CarrosController < ApplicationController
   def destroy
     @carro.destroy
     respond_to do |format|
-      format.html { redirect_to carros_url, notice: 'Carro was successfully destroyed.' }
+      format.html { redirect_to carros_url, notice: 'El producto fue quitado sin problemas.' }
       format.json { head :no_content }
     end
   end

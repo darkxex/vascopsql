@@ -1,10 +1,10 @@
 <% content_for :content_header  do %>
   <section class="content-header">
-    <h1>Listing <small>compras</small></h1>
+    <h1>Listando<small>Compras</small></h1>
 
     <ol class="breadcrumb">
-      <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li class="active">compras</li>
+      <li><a href="/"><i class="fa fa-dashboard"></i> Principal</a></li>
+      <li class="active">Compras</li>
     </ol>    
   </section>
 <% end %>
@@ -15,31 +15,39 @@
       <div class="box box-primary">
         <div class="box-header">
           <div class="box-tools pull-right">
-            <%= link_to new_compra_path(@compra), :class => 'btn btn-success' do %>
-              <span class="glyphicon glyphicon-plus"></span>
-              New Compra
-            <% end %>          
+                    
           </div>
         </div>
         <div class="box-body table-responsive">
           <table class="table table-hover">
             <thead>
               <tr>
-              <th>Factura</th>
+              <th>Código de Factura</th>
               <th>Producto</th>
+              <th>Precio</th>
+              
                             <th></th>
                 <th></th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
+                  <%
+ contador = 0;
+contador2 = 0;
+%>
               <%= content_tag_for(:tr, @compras) do |compra| %>
               <td><%= compra.factura_id %></td>
-              <td><%= compra.producto_id %></td>
-                            <td><%= link_to 'Show', compra %></td>
-                <td><%= link_to 'Edit', edit_compra_path(compra) %></td>
-                <td><%= link_to 'Destroy', compra, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= compra.producto.nombre %></td>
+                <td>$<%= compra.producto.precio %></td>
+                  <% contador += compra.producto.precio; %>
+                   <% contador2 += 1 %> 
+                            <td><%= link_to 'Mostrar', compra %></td>
+                <td><%= link_to 'Editar', edit_compra_path(compra) %></td>
+                <td><%= link_to 'Quitar', compra, method: :delete, data: { confirm: '¿Seguro que quitará de la boleta?' } %></td>
               <% end %>
+                <tr><th>Ganancias Totales</th><th>N°Productos Vendidos</th></tr>
+                <td><%= "$ #{contador}" %> </td><td><%= "#{contador2}" %> </td>
             </tbody>
           </table>
         </div>

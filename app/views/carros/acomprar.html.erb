@@ -1,0 +1,44 @@
+<% content_for :content_header  do %>
+  <section class="content-header">
+    <h1>Listando <small>Clientes</small></h1>
+
+    <ol class="breadcrumb">
+      <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li class="active">Clientes</li>
+    </ol>    
+  </section>
+<% end %>
+    
+   <small> Rut Buscado: <%= @data %>.</small><p>
+  <small>  <%= @name %>.</small><p>
+     <small> Rut Buscado: <%= @data2 %>.</small><p>
+  <small>  <%= @name2 %>.</small><p>
+<% @carros = Carro.all %>
+   <% if @portcompra %>
+   
+
+    <% content_tag_for(:tr, @carros) do |carro| %>
+              
+          
+        
+             <% @compra = Compra.new({
+   
+   :factura_id => Factura.last.id,
+   :producto_id => carro.producto_id,
+});
+@compra.save();%>
+                  
+                  <%Carro.delete_all%>   
+            
+              <% end %>
+
+              <%= "Compra sin problemas. puedes revisar tú factura aquí"; %>
+              <p>
+
+                    <%= link_to factura_path(Factura.last.id), :class => 'btn btn-success' do %>
+              <span class="glyphicon glyphicon-ok"></span>
+              Ir a Factura
+            <% end %>  
+<% else %>
+   <%= "No se pudo hacer la Compra."; %>
+<% end %>

@@ -44,10 +44,27 @@ contador2 = 0;
                      
               <% contador += carro.producto.precio; %>
                    <% contador2 += 1 %>     
-                <td><%= link_to 'Quitar', carro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td><%= link_to 'Quitar', carro, method: :delete, data: { confirm: '¿Seguro?' } %></td>
               <% end %>
                 <tr><th>Precio Total</th><th>N°Productos en el Carro</th></tr>
                 <td><%= "$ #{contador}" %> </td><td><%= "#{contador2}" %> </td>
+            
+   <%= form_tag({:controller => "carros", :action => "acomprar"}, :method => "get") do %>
+  
+   <%= label_tag "rutcliente", "Rut Cliente:" %>
+<p>
+   <%= text_field_tag "rutcliente", "", :size => 30, :maxlenght => 30, :placeholder => "Rut Cliente", :required => "required" %>
+<p>
+    <%= label_tag "rutvendedor", "Rut Vendedor:" %>
+<p>
+   <%= text_field_tag "rutvendedor", "", :size => 30, :maxlenght => 30, :placeholder => "Rut Vendedor", :required => "required" %>
+ <p>
+ <% if contador2 == 0  %>
+<%= "El carro no puede estar vacío." %>
+ <% else %>
+   <%= submit_tag "Enviar" %>
+   <% end %>
+<% end %>
             </tbody>
           </table>
         </div>

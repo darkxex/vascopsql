@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
+  resources :tests
   resources :compras
-  resources :carros
   resources :vendedors
   resources :nombres
   resources :facturas
- 
+  resources :carros do
+   collection do
+   get :acomprar
+ end
+end
   resources :clientes do
    collection do
    get :ajuste

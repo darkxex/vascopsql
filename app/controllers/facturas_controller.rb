@@ -5,6 +5,7 @@ class FacturasController < ApplicationController
   # GET /facturas.json
   def index
     @facturas = Factura.all
+    
   end
 
   # GET /facturas/1

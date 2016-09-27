@@ -28,7 +28,7 @@
               <th>ID de Producto</th>
               <th>Nombre</th>
               <th>Precio</th>
-             
+             <th>Activo (Disponible en Vasco)</th>
                             <th></th>
                 <th></th>
                 <th></th>
@@ -43,12 +43,29 @@
               <td><%= producto.id %></td>
               <td><%= producto.nombre %></td>
               <td><%= producto.precio %></td>
+<td>
 
+<% if producto.activo %>
+   <%= "Disponible"; %>
+<% else %>
+   <%= "Agotado"; %>
+<% end %>
+
+</td>
 <% contador += 1; %>
-                            <td><%= link_to 'Al Carro', alcarro_producto_path(producto), :target => '_blank', data: { confirm: '¿Estás seguro?' } %></td>
+
+<% if producto.activo %>
+ <td><%= link_to 'Al Carro', alcarro_producto_path(producto), :target => '_blank', data: { confirm: '¿Estás seguro?' } %></td>
+<% else %>
+<td><%= link_to 'Sin Stock', productos_path%></td>
+<% end %>
+                           
+
+
+
                             <td><%= link_to 'Mostrar', producto %></td>
                 <td><%= link_to 'Editar', edit_producto_path(producto) %></td>
-                <td><%= link_to 'Eliminar', producto, method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
+                
               <% end %>
                 <tr><th>N°Productos</th></tr>
                 <td><%= "#{contador}" %> </td>

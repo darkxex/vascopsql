@@ -2,37 +2,35 @@
   <!-- Sidebar user panel -->
   
   <!-- search form -->
-  <form action="#" method="get" class="sidebar-form">
-    <div class="input-group">
-      <input type="text" name="q" class="form-control" placeholder="Search..."/>
-      <span class="input-group-btn">
-        <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
-      </span>
-    </div>
-  </form>
+ <center> <%= link_to carros_path, :target => "_blank", :class => 'btn btn-success' do %>
+              <span class="glyphicon glyphicon-ok"></span>
+          <font color="white">¡Ir al Carro!</font>
+            <% end %>   </center>
   <!-- /.search form -->
   <!-- sidebar menu: : style can be found in sidebar.less -->
   <ul class="sidebar-menu">
     <%= nav_link root_path do %>
       <i class="fa fa-dashboard"></i> <span>Principal</span>
     <% end %>
-     <%= nav_link productos_path do %>
-      <i class="fa fa-dashboard"></i> <span>Productos</span>
-    <% end %>
-    <%= nav_link carros_path do %>
-      <i class="fa fa-dashboard"></i> <span>Carro de Compras</span>
-    <% end %>
-      <%= nav_link compras_path do %>
-      <i class="fa fa-dashboard"></i> <span>Compras</span>
-    <% end %>
-       <%= nav_link facturas_path do %>
-      <i class="fa fa-dashboard"></i> <span>Facturas</span>
-    <% end %>
-       <%= nav_link clientes_path do %>
+         <%= nav_link clientes_path do %>
       <i class="fa fa-dashboard"></i> <span>Clientes</span>
     <% end %>
        <%= nav_link vendedors_path do %>
       <i class="fa fa-dashboard"></i> <span>Vendedores</span>
     <% end %>
+
+     <%= nav_link productos_path do %>
+      <i class="fa fa-dashboard"></i> <span>Productos</span>
+    <% end %>
+    
+     
+       <%= nav_link facturas_path do %>
+      <i class="fa fa-dashboard"></i> <span>Facturas</span>
+    <% end %>
+
+     <%= nav_link compras_path do %>
+      <i class="fa fa-dashboard"></i> <span>Compras</span>
+    <% end %>
+  
   </ul>
 </section>

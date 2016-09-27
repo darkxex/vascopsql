@@ -36,6 +36,7 @@ class ProductosController < ApplicationController
       end
     end
   end
+  
 def alcarro
  
         @carro = Carro.new({
@@ -81,6 +82,6 @@ def alcarro
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def producto_params
-      params.require(:producto).permit(:nombre, :precio)
+      params.require(:producto).permit(:nombre, :precio, :activo)
     end
 end

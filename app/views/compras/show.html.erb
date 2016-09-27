@@ -1,9 +1,9 @@
 <% content_for :content_header  do %>
   <section class="content-header">
-    <h1>Show <small>compra</small></h1>
+    <h1>Mostrar <small>Compra</small></h1>
 
     <ol class="breadcrumb">
-      <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li><a href="/"><i class="fa fa-dashboard"></i> Principal</a></li>
       <li><%= link_to "Compras", compras_path %></li>
       <li class="active">Show</li>
     </ol>
@@ -18,7 +18,7 @@
           <div class="box-tools pull-right">
             <%= link_to edit_compra_path(@compra), :class => 'btn btn-primary' do %>
               <span class="glyphicon glyphicon-pencil"></span>
-              Edit
+              Editar
             <% end %>          
           </div>
         </div>
@@ -27,7 +27,7 @@
             <dt>Factura:</dt>
             <dd><%= @compra.factura_id %></dd>
 
-            <dt>Producto:</dt>
+            <dt>ID de Producto:</dt>
             <dd><%= @compra.producto_id %></dd>
 
           </dl>
