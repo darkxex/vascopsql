@@ -36,14 +36,14 @@ class ProductosController < ApplicationController
       end
     end
   end
-def tester
+def alcarro
  
-        @acompra = Compra.new({
-   :comentario => "SIN PAGAR",
+        @carro = Carro.new({
+   
    :producto_id => params[:id],
-   :cliente_id => 1
+  
 });
-@acompra.save();
+@carro.save();
   end
 
   # PATCH/PUT /productos/1

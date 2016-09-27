@@ -1,10 +1,10 @@
 <% content_for :content_header  do %>
   <section class="content-header">
-    <h1>Listando <small>Clientes</small></h1>
+    <h1>Listing <small>vendedors</small></h1>
 
     <ol class="breadcrumb">
       <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li class="active">Clientes</li>
+      <li class="active">vendedors</li>
     </ol>    
   </section>
 <% end %>
@@ -15,9 +15,9 @@
       <div class="box box-primary">
         <div class="box-header">
           <div class="box-tools pull-right">
-            <%= link_to new_cliente_path(@cliente), :class => 'btn btn-success' do %>
+            <%= link_to new_vendedor_path(@vendedor), :class => 'btn btn-success' do %>
               <span class="glyphicon glyphicon-plus"></span>
-              Nuevo Cliente
+              New Vendedor
             <% end %>          
           </div>
         </div>
@@ -34,27 +34,14 @@
               </tr>
             </thead>
             <tbody>
-              <%= content_tag_for(:tr, @clientes) do |cliente| %>
-              <td><%= cliente.nombre %></td>
-              <td><%= cliente.rut %></td>
-              <td><%= cliente.fono %></td>
-                            <td><%= link_to 'Mostrar', cliente %></td>
-                <td><%= link_to 'Editar', edit_cliente_path(cliente) %></td>
-                <td><%= link_to 'Eliminar', cliente, method: :delete, data: { confirm: '¿Seguro?' } %></td>
+              <%= content_tag_for(:tr, @vendedors) do |vendedor| %>
+              <td><%= vendedor.nombre %></td>
+              <td><%= vendedor.rut %></td>
+              <td><%= vendedor.fono %></td>
+                            <td><%= link_to 'Show', vendedor %></td>
+                <td><%= link_to 'Edit', edit_vendedor_path(vendedor) %></td>
+                <td><%= link_to 'Destroy', vendedor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
               <% end %>
-             
-      
-      
-   <%= form_tag({:controller => "clientes", :action => "ajuste"}, :method => "get") do %>
-   <%= label_tag "rut", "Rut a Predeterminar:" %>
-
-   <%= text_field_tag "rut", "", :size => 30, :maxlenght => 30, :placeholder => "18828818-9", :required => "required" %>
-
-   <%= submit_tag "Enviar" %>
-<% end %>
-
-
-
             </tbody>
           </table>
         </div>

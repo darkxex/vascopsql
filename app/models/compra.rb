@@ -1,4 +1,4 @@
 class Compra < ActiveRecord::Base
-  belongs_to :producto
-  belongs_to :cliente
+	belongs_to :producto
+	belongs_to :factura
 end

@@ -56,7 +56,7 @@ class ComprasController < ApplicationController
   def destroy
     @compra.destroy
     respond_to do |format|
-      format.html { redirect_to compras_url, notice: 'La compra fue retirada sin problemas.' }
+      format.html { redirect_to compras_url, notice: 'Compra was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +69,6 @@ class ComprasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def compra_params
-      params.require(:compra).permit(:comentario, :producto_id, :cliente_id)
+      params.require(:compra).permit(:factura_id, :producto_id)
     end
 end

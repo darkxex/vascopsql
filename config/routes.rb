@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resources :compras
-  resources :compras
+  resources :carros
+  resources :vendedors
+  resources :nombres
+  resources :facturas
+ 
   resources :clientes do
    collection do
    get :ajuste
@@ -8,7 +12,7 @@ Rails.application.routes.draw do
   end
   resources :productos do
     member do
-    get :tester
+    get :alcarro
     get :ajuste
   end
 end

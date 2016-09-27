@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160924012924) do
+ActiveRecord::Schema.define(version: 20160927000902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,12 @@ ActiveRecord::Schema.define(version: 20160924012924) do
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
 
+  create_table "carros", force: :cascade do |t|
+    t.integer  "producto_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "clientes", force: :cascade do |t|
     t.string   "nombre"
     t.string   "rut"
@@ -43,15 +49,25 @@ ActiveRecord::Schema.define(version: 20160924012924) do
   end
 
   create_table "compras", force: :cascade do |t|
-    t.text     "comentario"
+    t.integer  "factura_id"
     t.integer  "producto_id"
-    t.integer  "cliente_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  add_index "compras", ["cliente_id"], name: "index_compras_on_cliente_id", using: :btree
-  add_index "compras", ["producto_id"], name: "index_compras_on_producto_id", using: :btree
+  create_table "facturas", force: :cascade do |t|
+    t.integer  "cliente_id"
+    t.integer  "vendedor_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "nombres", force: :cascade do |t|
+    t.string   "rut"
+    t.string   "fono"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "productos", force: :cascade do |t|
     t.string   "nombre"
@@ -60,6 +76,12 @@ ActiveRecord::Schema.define(version: 20160924012924) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "compras", "clientes"
-  add_foreign_key "compras", "productos"
+  create_table "vendedors", force: :cascade do |t|
+    t.string   "nombre"
+    t.string   "rut"
+    t.integer  "fono"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end
