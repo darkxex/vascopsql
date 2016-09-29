@@ -32,9 +32,14 @@
       <i class="fa fa-dashboard"></i> <span>Compras</span>
     <% end %>
   
- <%= nav_link edit_admin_registration_path do %>
-      <i class="fa fa-dashboard"></i> <span>Editar Cuenta</span>
+ <%= link_to edit_admin_registration_path do %>
+        <center> <span>Editar Cuenta</span></center>
     <% end %>
+
+<%= link_to destroy_admin_session_path,:method => :delete do %>
+     <center> <span>Desconectarse</span></center>
+    <% end %>
+
 
   </ul>
 </section>
