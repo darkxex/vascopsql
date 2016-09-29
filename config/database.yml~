@@ -82,6 +82,7 @@ test:
 #
 production:
   <<: *default
-  database: vascopsql_production
-  username: vascopsql
-  password: <%= ENV['VASCOPSQL_DATABASE_PASSWORD'] %>
+  host: ec2-23-21-234-218.compute-1.amazonaws.com
+  database: d1cc35u71ra1js
+  username: ffjejjdrgnhhqj
+  password: ZcIoBU6Agm9rEICFERr-BrJ9FE
