@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 usuario = Admin.new
-usuario.email  = 'frubilar@icci.cl'
+usuario.email  = 'admin@admin.cl'
 usuario.password ='1234567'
 usuario.password_confirmation = '1234567'
 usuario.save
