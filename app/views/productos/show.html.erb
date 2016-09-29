@@ -31,7 +31,11 @@
             <dd><%= @producto.precio %></dd>
 
  <dt>Activo (Disponible):</dt>
-            <dd><%= @producto.activo %></dd>
+            <dd><% if @producto.activo %>
+   <%= "Disponible"; %>
+<% else %>
+   <%= "Agotado"; %>
+<% end %></dd>
 
           </dl>
         </div>
